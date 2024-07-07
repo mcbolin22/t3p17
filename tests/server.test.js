@@ -40,6 +40,6 @@ describe("v2/ functionality", () => {
         const response = await request(app).get("/v2/headercheck").auth("booboo", {type: "bearer"});
 
         expect(response.body.data).toBe("Bearer booboo");
-    })
-})
+    });
+});
 
