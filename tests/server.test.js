@@ -35,5 +35,11 @@ describe("v2/ functionality", () => {
         .toBe("Dune");
         expect(response.body.data.movie).toBeTruthy();
     })
+
+    it("v2/headercheck GET receives an auth header correctly", async () => {
+        const response = await request(app).get("/v2/headercheck").auth("booboo", {type: "bearer"});
+
+        expect(response.body.data).toBe("Bearer booboo");
+    })
 })
 
