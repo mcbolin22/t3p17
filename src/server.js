@@ -12,15 +12,14 @@ app.use("/v2", apiV2);
 
 
 app.use((error, request, response, next) => {
+    console.log(error.message);
     response.json({
         message:"Error occured!",
-        error: error
+        error: error.message
     });
 });
 
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
 
-module.exports = {app}
+
+module.exports = {app, PORT}
